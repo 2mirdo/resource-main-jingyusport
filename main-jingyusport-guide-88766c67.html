@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鲸鱼体育 · 日常资讯与赛事参考</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e242b;
+            line-height: 1.6;
+            padding: 0 1rem 3rem;
+        }
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem 3rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f1a2b;
+            margin-bottom: 0.4rem;
+        }
+        .hero h1 span {
+            color: #1f6e8c;
+            font-weight: 600;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #465a6a;
+            max-width: 580px;
+            margin: 0.8rem auto 2rem;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #ffffffdb;
+            backdrop-filter: blur(2px);
+            padding: 0.5rem 1.6rem;
+            border-radius: 40px;
+            border: 1px solid #d6dee5;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            font-size: 0.95rem;
+            color: #2e4457;
+        }
+
+        /* 通用卡片 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem 2rem;
+            border: 1px solid #e3e9ef;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #1e2c3a;
+            letter-spacing: -0.01em;
+        }
+        .card p {
+            color: #3f5567;
+            font-size: 0.95rem;
+        }
+        .card .icon {
+            font-size: 2rem;
+            line-height: 1;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        /* 说明区 */
+        .explain {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.4rem 2rem;
+            border: 1px solid #e3e9ef;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin: 2rem 0;
+        }
+        .explain h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #15222f;
+        }
+        .explain p {
+            margin-bottom: 0.8rem;
+            color: #2e4052;
+        }
+        .explain a {
+            color: #1f6e8c;
+            text-decoration: none;
+            border-bottom: 1px dotted #b0c7d8;
+            transition: border-color 0.2s;
+        }
+        .explain a:hover {
+            border-bottom: 1px solid #1f6e8c;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 2rem 2rem;
+            border: 1px solid #e3e9ef;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin: 2rem 0;
+        }
+        .faq-summary h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #15222f;
+        }
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #1f313f;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item p {
+            color: #425a6b;
+            font-size: 0.92rem;
+            margin-top: 0.2rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            text-align: center;
+            padding: 2.8rem 0 1rem;
+            border-top: 1px solid #dde4eb;
+            margin-top: 2.8rem;
+        }
+        .footer-links .sentence {
+            color: #3c5568;
+            font-size: 0.95rem;
+        }
+        .footer-links a {
+            color: #1f6e8c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #b6ccdb;
+            transition: border-color 0.2s;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #1f6e8c;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .sub { font-size: 1rem; }
+            .card { padding: 1.5rem 1.2rem; }
+            .explain { padding: 1.8rem 1.2rem; }
+            .faq-summary { padding: 1.4rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <!-- hero -->
+    <section class="hero">
+        <h1><span>鲸鱼</span>体育</h1>
+        <p class="sub">日常赛事查询、数据对照与延伸阅读 —— 信息干净，不喧哗</p>
+        <span class="tagline">⚡ 查赛程 · 看记录 · 理思路</span>
+    </section>
+
+    <!-- 优势区：三个卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <span class="icon">📋</span>
+            <h3>对照简明</h3>
+            <p>比赛时间、近期战绩、交锋记录并排展示，省去来回切换的麻烦。你只需要关注数字和节奏。</p>
+        </div>
+        <div class="card">
+            <span class="icon">🔗</span>
+            <h3>延伸有度</h3>
+            <p>从一条赛果能自然地连接到历史数据、赛季趋势或相关项。不堆砌，点到即止。</p>
+        </div>
+        <div class="card">
+            <span class="icon">🧭</span>
+            <h3>日常顺手</h3>
+            <p>不需要注册或复杂筛选，打开页面就能看到当周重点。适合快速看一眼，也适合静下来对照。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：从日常查询、对照和延伸阅读的角度展开 -->
+    <section class="explain">
+        <h2>从一条信息开始，自然延伸</h2>
+        <p>
+            很多时候我们只是想查一下某场比赛的时间，或者确认一支队伍近期的走势。但体育资讯往往要么太碎，要么太深。<a href="https://main-jingyusport.com">鲸鱼体育</a> 试着换一种方式：把赛程、基础数据和历史对照放在相近的位置，让你在查看一条信息时，余光就能看到它的上下文。
+        </p>
+        <p>
+            比如你看到一场周末的联赛，旁边可能就附着了双方过去五场的进球趋势；你点开一支球队的页面，除了当前排名，还能看到它在本赛季同类对手面前的表现。这种对照不是为了炫技，而是觉得「既然你在看，不如顺便多了解一点」。
+        </p>
+        <p>
+            延伸阅读的部分也类似——不会自动跳转到无关的热门新闻，而是根据你当前关注的内容，推荐几条相关的记录或赛季笔记。你可以理解为一种安静的引导，而不是推送。
+        </p>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="faq-summary">
+        <h2>常见疑问 · 简要</h2>
+        <div class="faq-item">
+            <strong>数据更新频率如何？</strong>
+            <p>比赛结果通常在终场后数分钟内同步，赛前信息至少提前一天确认。遇到赛程调整会尽量标注。</p>
+        </div>
+        <div class="faq-item">
+            <strong>对照表里的“近期”是指多久？</strong>
+            <p>默认展示最近十场正式比赛，但你可以自行调整时间范围，最长可查看整个赛季的逐场记录。</p>
+        </div>
+        <div class="faq-item">
+            <strong>延伸阅读是自动推荐的吗？</strong>
+            <p>是的，但推荐逻辑基于你当前浏览的赛事或球队，不会根据个人历史做追踪，也不生成用户画像。</p>
+        </div>
+        <div class="faq-item">
+            <strong>移动端查看方便吗？</strong>
+            <p>页面针对手机和窄屏做了适配，卡片横向滚动或折叠，关键信息仍然一览无余。</p>
+        </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <footer class="footer-links">
+        <p class="sentence">
+            日常查赛程、翻记录，或者只是想安静地对照几组数据——<a href="https://main-jingyusport.com">鲸鱼体育</a> 都在这里。
+        </p>
+        <p style="margin-top: 1.4rem; font-size: 0.85rem; color: #668099;">
+            © 一种安静的体育信息方式
+        </p>
+    </footer>
+</div>
+</body>
+</html>
